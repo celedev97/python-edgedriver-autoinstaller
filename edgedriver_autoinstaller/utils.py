@@ -128,7 +128,7 @@ def get_matched_edgedriver_version(version):
     :param version: the version of edge
     :return: the version of edgedriver
     """
-    doc = requests.get('https://msedgedriver.azureedge.net/', headers={'accept-encoding': 'gzip, deflate, br'}).text
+    doc = requests.get('https://msedgewebdriverstorage.blob.core.windows.net/edgewebdriver?prefix=%s&maxresults=25&comp=list'%version).text
     root = elemTree.fromstring(doc)
     for k in root.iter('Name'):
         if k.text.find(get_major_version(version) + '.') == 0:
