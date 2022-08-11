@@ -47,8 +47,12 @@ def get_platform_architecture():
         platform = 'mac'
         architecture = '64'
     elif sys.platform.startswith('win'):
+        import platform as pf
         platform = 'win'
-        architecture = '32'
+        if pf.architecture()[0][:2] == '64':
+            architecture = '64'
+        else:
+            architecture = '32'
     else:
         raise RuntimeError('Could not determine edgedriver download URL for this platform.')
     return platform, architecture
