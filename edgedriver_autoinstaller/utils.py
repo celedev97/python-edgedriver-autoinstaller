@@ -102,7 +102,7 @@ def get_edge_version():
         return  # Edge for linux still doesn't exists
     elif platform == 'mac':
         # TODO: FIX THIS
-        process = subprocess.Popen(['/Applications/Google edge.app/Contents/MacOS/Google edge', '--version'], stdout=subprocess.PIPE)
+        process = subprocess.Popen(['/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft edge', '--version'], stdout=subprocess.PIPE)
         version = process.communicate()[0].decode('UTF-8').replace('Google edge', '').strip()
     elif platform == 'win':
         process = subprocess.Popen(
